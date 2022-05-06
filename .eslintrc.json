@@ -5,11 +5,13 @@
     "react-native/react-native": true
   },
   "extends": [
+    "@react-native-community",
     "airbnb",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/typescript",
     "plugin:react/recommended",
     "plugin:import/recommended",
+    "plugin:react-hooks/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
@@ -41,7 +43,10 @@
       }
     ],
     "import/prefer-default-export": "off",
-    "import/export": 0
+    "import/export": 0,
+    "no-param-reassign": "off",
+    "no-shadow": "off",
+    "consistent-return": "off"
   },
   "settings": {
     "import/resolver": {

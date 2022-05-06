@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 enum routeNames {
   // Auth
   AuthStack = "Auth Stack",

@@ -1,4 +1,4 @@
-import { AnyAction, combineReducers, configureStore, EmptyObject } from "@reduxjs/toolkit";
+import { AnyAction, CombinedState, combineReducers, configureStore } from "@reduxjs/toolkit";
 import {
   FLUSH,
   PAUSE,
@@ -10,6 +10,8 @@ import {
   REHYDRATE,
 } from "redux-persist";
 import createSensitiveStorage from "redux-persist-sensitive-storage";
+import { UserInitialState } from "../reducers/user/types";
+import userReducer from "../reducers/user/slice";
 
 const storage = createSensitiveStorage({
   keychainService: "myKeychain",
@@ -40,7 +42,7 @@ const combinedReducers = combineReducers({
   // [ContactUsApi.reducerPath]: ContactUsApi.reducer,
   // [PaymentsApi.reducerPath]: PaymentsApi.reducer,
   // language: languageReducer,
-  // user: userReducer,
+  user: userReducer,
   // car: carReducer,
   // alerts: alertsReducer,
   // demo: demoReducer,
@@ -48,7 +50,9 @@ const combinedReducers = combineReducers({
   // socketLoadingOverlay: socketLoadingReducer,
 });
 
-const rootReducer = (state: EmptyObject | undefined, action: AnyAction) => {
+type StateType = CombinedState<{ user: UserInitialState }> | undefined;
+
+const rootReducer = (state: StateType, action: AnyAction) => {
   if (action.type === "user/logout") {
     return combinedReducers(undefined, action);
   }
@@ -71,4 +75,5 @@ export const store = configureStore({
     ]),
 });
 
+export type AppStateType = ReturnType<typeof rootReducer>;
 export const persistor = persistStore(store);
