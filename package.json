@@ -7,8 +7,16 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "postinstall": "npx pod-install"
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src/",
+    "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx src/ --fix",
+    "postinstall": "npx pod-install",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": [
+      "yarn lint:fix",
+      "yarn prettier:write"
+    ]
   },
   "dependencies": {
     "@react-native-firebase/app": "^14.9.1",
@@ -50,7 +58,9 @@
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
     "eslint-plugin-react-native": "^4.0.0",
+    "husky": "^7.0.0",
     "jest": "^26.6.3",
+    "lint-staged": "^12.4.1",
     "metro-react-native-babel-preset": "^0.67.0",
     "prettier": "2.6.2",
     "react-test-renderer": "17.0.2",
