@@ -1,10 +1,18 @@
+import auth from "@react-native-firebase/auth";
+import { GoogleSignin, GoogleSigninButton } from "@react-native-google-signin/google-signin";
 import React, { FC } from "react";
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView } from "react-native";
 
 const GoogleAuthScreen: FC = () => {
+  const handleGoogleLogin = async () => {
+    const { idToken } = await GoogleSignin.signIn();
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    return auth().signInWithCredential(googleCredential);
+  };
+
   return (
     <SafeAreaView>
-      <Text>GoogleAuthScreen</Text>
+      <GoogleSigninButton onPress={handleGoogleLogin} />
     </SafeAreaView>
   );
 };
