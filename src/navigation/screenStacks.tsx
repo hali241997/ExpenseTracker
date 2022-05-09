@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
   AddBudgetScreen,
   AddExpenseScreen,
+  CreateWalletScreen,
   CurrentWalletScreen,
   EditExpenseScreen,
   HomeScreen,
@@ -20,11 +21,12 @@ import {
   TransactionsScreen,
 } from "@screens/App";
 import { GoogleAuthScreen } from "@screens/Auth";
-import React from "react";
+import React, { FC } from "react";
 import routeNames from "./routeNames";
 import {
   AppParamList,
   AuthParamList,
+  HomeParamList,
   MyPendingTransactionsParamList,
   MyTransactionsParamList,
   MyWalletsParamList,
@@ -36,7 +38,7 @@ import {
 const AuthStack = createNativeStackNavigator<AuthParamList>();
 export const AuthNavigator = () => {
   return (
-    <AuthStack.Navigator>
+    <AuthStack.Navigator screenOptions={{ headerShown: false }}>
       <AuthStack.Screen name={routeNames.GoogleAuthStack} component={GoogleAuthScreen} />
     </AuthStack.Navigator>
   );
@@ -44,20 +46,47 @@ export const AuthNavigator = () => {
 
 // App
 const App = createDrawerNavigator<AppParamList>();
-export const AppNavigator = () => {
+export const AppNavigator: FC = () => {
   return (
-    <App.Navigator initialRouteName={routeNames.HomeScreen}>
-      <App.Screen name={routeNames.HomeScreen} component={HomeScreen} />
-      <App.Screen name={routeNames.MyTransactionsStack} component={MyTransactionsNavigator} />
-      <App.Screen name={routeNames.MyWalletsStack} component={MyWalletsNavigator} />
-      <App.Screen name={routeNames.ProfileStack} component={ProfileScreen} />
+    <App.Navigator initialRouteName={routeNames.HomeStack} screenOptions={{ headerShown: false }}>
+      <App.Screen
+        name={routeNames.HomeStack}
+        component={HomeNavigator}
+        options={{ title: "Home" }}
+      />
+      <App.Screen
+        name={routeNames.MyTransactionsStack}
+        component={MyTransactionsNavigator}
+        options={{ title: "My Transactions" }}
+      />
+      <App.Screen
+        name={routeNames.MyWalletsStack}
+        component={MyWalletsNavigator}
+        options={{ title: "My Wallets" }}
+      />
+      <App.Screen
+        name={routeNames.ProfileStack}
+        component={ProfileScreen}
+        options={{ title: "Profile" }}
+      />
     </App.Navigator>
+  );
+};
+
+// Home
+const Home = createNativeStackNavigator<HomeParamList>();
+export const HomeNavigator: FC = () => {
+  return (
+    <Home.Navigator initialRouteName={routeNames.HomeScreen} screenOptions={{ headerShown: false }}>
+      <Home.Screen name={routeNames.HomeScreen} component={HomeScreen} />
+      <Home.Screen name={routeNames.CreateWalletScreen} component={CreateWalletScreen} />
+    </Home.Navigator>
   );
 };
 
 // My Transactions
 const MyTransactions = createNativeStackNavigator<MyTransactionsParamList>();
-export const MyTransactionsNavigator = () => {
+export const MyTransactionsNavigator: FC = () => {
   return (
     <MyTransactions.Navigator initialRouteName={routeNames.MyTransactionsScreen}>
       <MyTransactions.Screen
@@ -72,7 +101,7 @@ export const MyTransactionsNavigator = () => {
 
 // My Wallets
 const MyWallets = createNativeStackNavigator<MyWalletsParamList>();
-export const MyWalletsNavigator = () => {
+export const MyWalletsNavigator: FC = () => {
   return (
     <MyWallets.Navigator initialRouteName={routeNames.MyWalletsScreen}>
       <MyWallets.Screen name={routeNames.MyWalletsScreen} component={MyWalletsScreen} />
@@ -97,7 +126,7 @@ export const MyWalletsNavigator = () => {
 
 // Pending Transactions Tabs
 const PendingTransactionsTabs = createMaterialTopTabNavigator<PendingTransactionsParamList>();
-export const PendingTransactionsTabsNavigator = () => {
+export const PendingTransactionsTabsNavigator: FC = () => {
   return (
     <PendingTransactionsTabs.Navigator initialRouteName={routeNames.MyPendingTransactionsStack}>
       <PendingTransactionsTabs.Screen
@@ -114,7 +143,7 @@ export const PendingTransactionsTabsNavigator = () => {
 
 // My Pending Transactions
 const MyPendingTransactions = createNativeStackNavigator<MyPendingTransactionsParamList>();
-export const MyPendingTransactionsNavigator = () => {
+export const MyPendingTransactionsNavigator: FC = () => {
   return (
     <MyPendingTransactions.Navigator initialRouteName={routeNames.MyPendingTransactionsScreen}>
       <MyPendingTransactions.Screen
@@ -134,7 +163,7 @@ export const MyPendingTransactionsNavigator = () => {
 };
 
 const OthersPendingTransactions = createNativeStackNavigator<OthersPendingTransactionsParamList>();
-export const OthersPendingTransactionsNavigator = () => {
+export const OthersPendingTransactionsNavigator: FC = () => {
   return (
     <OthersPendingTransactions.Navigator
       initialRouteName={routeNames.OthersPendingTransactionsScreen}

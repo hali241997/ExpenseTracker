@@ -1,7 +1,7 @@
+import { Col, Header } from "@components/index";
 import auth from "@react-native-firebase/auth";
 import { GoogleSignin, GoogleSigninButton } from "@react-native-google-signin/google-signin";
 import React, { FC } from "react";
-import { SafeAreaView } from "react-native";
 
 const GoogleAuthScreen: FC = () => {
   const handleGoogleLogin = async () => {
@@ -11,9 +11,18 @@ const GoogleAuthScreen: FC = () => {
   };
 
   return (
-    <SafeAreaView>
-      <GoogleSigninButton onPress={handleGoogleLogin} />
-    </SafeAreaView>
+    <Col style={{ flex: 1 }}>
+      <Header title="Login" />
+      <Col
+        style={{
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <GoogleSigninButton onPress={handleGoogleLogin} />
+      </Col>
+    </Col>
   );
 };
 

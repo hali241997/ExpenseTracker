@@ -5,8 +5,12 @@ enum routeNames {
 
   // App
   AppDrawer = "App Drawer",
-  HomeScreen = "Home",
   ProfileStack = "Profile Stack",
+
+  // Home
+  HomeStack = "Home Stack",
+  HomeScreen = "Home",
+  CreateWalletScreen = "Create Wallet",
 
   // My Transactions
   MyTransactionsStack = "My Transactions Stack",
