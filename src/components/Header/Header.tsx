@@ -31,9 +31,9 @@ const Header: FC<HeaderProps> = ({ title, withBackButton, withDrawerButton, righ
         {withBackButton && (
           <Icon
             isTouchable
-            name="arrow-back"
+            name="arrow-left-thick"
             size={30}
-            color={AppColors.black}
+            color={AppColors.white}
             onPress={handleGoBack}
           />
         )}
@@ -42,14 +42,16 @@ const Header: FC<HeaderProps> = ({ title, withBackButton, withDrawerButton, righ
             isTouchable
             name="menu"
             size={30}
-            color={AppColors.black}
+            color={AppColors.white}
             onPress={handleToggleDrawer}
           />
         )}
       </Col>
 
       <Col style={{ flex: 0.8, alignItems: "center" }}>
-        <Text weight="Regular">{title}</Text>
+        <Text weight="Regular" color={AppColors.white}>
+          {title}
+        </Text>
       </Col>
 
       <Col style={{ flex: 0.1 }}>{rightComponent}</Col>

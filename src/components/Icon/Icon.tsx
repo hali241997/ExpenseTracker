@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { TouchableOpacity } from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { iIconProps } from "./types";
 
 const Index: FC<iIconProps> = ({ isTouchable, onPress, ...props }) => {

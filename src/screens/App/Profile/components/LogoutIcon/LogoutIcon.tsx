@@ -14,13 +14,7 @@ const LogOutIcon: FC = () => {
   }, [dispatch]);
 
   return (
-    <Icon
-      name="log-out-outline"
-      size={30}
-      color={AppColors.black}
-      isTouchable
-      onPress={handleLogout}
-    />
+    <Icon name="logout" size={30} color={AppColors.black} isTouchable onPress={handleLogout} />
   );
 };
 

@@ -1,9 +1,9 @@
 import { Col, Header, LoadingScreen } from "@components/index";
-import useFirestore from "@hooks/useFirestore";
+import { useFirestore } from "@hooks/index";
 import { useUserState } from "@redux/index";
 import React, { FC, useCallback, useEffect, useState } from "react";
 import { Wallet } from "../../../types";
-import { HasWallet, NoWallet } from "./components";
+import { AddWalletIcon, HasWallet, NoWallet } from "./components";
 
 const HomeScreen: FC = () => {
   const { wallets } = useFirestore();
@@ -31,7 +31,11 @@ const HomeScreen: FC = () => {
 
   return (
     <Col style={{ flex: 1 }}>
-      <Header title="Welcome to Expense Tracker" withDrawerButton />
+      <Header
+        title="Welcome to Expense Tracker"
+        withDrawerButton
+        rightComponent={wallet?.wallet && wallet.wallet.length > 0 ? <AddWalletIcon /> : null}
+      />
 
       {isLoading ? (
         <LoadingScreen />

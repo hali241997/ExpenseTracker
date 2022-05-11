@@ -3,7 +3,7 @@ import { Platform, StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   header: {
-    backgroundColor: AppColors.white,
+    backgroundColor: AppColors.primary,
     alignItems: "center",
     flexDirection: "row",
     height: Platform.OS === "android" ? 50 : 90,
