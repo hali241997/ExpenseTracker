@@ -1,8 +1,8 @@
-import { VoidFunctionComponent } from "react";
+import { ReactNode } from "react";
 
 export interface HeaderProps {
   title: string;
   withBackButton?: boolean;
   withDrawerButton?: boolean;
-  rightComponent?: VoidFunctionComponent;
+  rightComponent?: ReactNode;
 }
