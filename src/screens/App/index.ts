@@ -1,5 +1,6 @@
 export * from "./AddBudget";
 export * from "./AddExpense";
+export * from "./CreateWallet";
 export * from "./CurrentWallet";
 export * from "./EditExpense";
 export * from "./Home";

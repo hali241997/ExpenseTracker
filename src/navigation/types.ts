@@ -10,10 +10,15 @@ export type AuthParamList = {
 };
 
 export type AppParamList = {
-  [routeNames.HomeScreen]: undefined;
+  [routeNames.HomeStack]: undefined;
   [routeNames.MyTransactionsStack]: undefined;
   [routeNames.MyWalletsStack]: undefined;
   [routeNames.ProfileStack]: undefined;
+};
+
+export type HomeParamList = {
+  [routeNames.HomeScreen]: undefined;
+  [routeNames.CreateWalletScreen]: undefined;
 };
 
 export type MyTransactionsParamList = {
@@ -51,6 +56,7 @@ export type OthersPendingTransactionsParamList = {
 export type CombinedParamList = RootParamList &
   AuthParamList &
   AppParamList &
+  HomeParamList &
   MyTransactionsParamList &
   MyWalletsParamList &
   PendingTransactionsParamList &
