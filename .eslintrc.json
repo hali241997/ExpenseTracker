@@ -46,7 +46,8 @@
     "no-param-reassign": "off",
     "no-shadow": "off",
     "consistent-return": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "no-nested-ternary": "off"
   },
   "settings": {
     "import/resolver": {

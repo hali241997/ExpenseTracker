@@ -4,7 +4,7 @@ export default StyleSheet.create({
   flex: {
     flex: 1,
   },
-  pieChartContainer: {
+  pieContainer: {
     height: "40%",
     alignItems: "center",
     justifyContent: "center",
@@ -23,19 +23,19 @@ export default StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  categoryOne: {
+  rowOne: {
     flex: 1,
     marginLeft: 20,
-  },
-  category: {
-    marginRight: 30,
-    marginBottom: 20,
   },
   ball: {
     width: 20,
     height: 20,
     borderRadius: 10,
     marginRight: 10,
+  },
+  contentContainer: {
+    marginRight: 30,
+    marginBottom: 20,
   },
   textContainer: {
     width: Dimensions.get("window").width / 2 - 50,
@@ -45,10 +45,5 @@ export default StyleSheet.create({
   },
   amount: {
     flex: 0.2,
-  },
-  emptyTextContainer: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
