@@ -1,10 +1,21 @@
 const AppColors = {
-  white: "#FFFFFF",
-  background: "#F2F2F2",
   black: "#000000",
   hyperLink: "#0891B2",
-  primary: "#4357AD",
-  header: "#C45C4A",
+
+  // Theme
+  theme: {
+    primary: "#4357AD",
+    accent: "#48A9A6",
+    background: "#FFFFFF",
+    surface: "#E4DFDA",
+    text: "#000000",
+    disabled: "#E4DFDA",
+    placeholder: "#D9D7D3",
+    backdrop: "rgba(0,0,0,0.5)",
+    onSurface: "#C1666B",
+    notification: "#C1666B",
+    error: "#C1666B",
+  },
 
   // Chart Colors
   yellow: "#FACC15",

@@ -8,3 +8,8 @@ export interface Wallet {
   userId: string;
   wallet: Array<Expense>;
 }
+
+export enum WalletType {
+  PERSONAL = "PERSONAL",
+  JOINT = "JOINT",
+}

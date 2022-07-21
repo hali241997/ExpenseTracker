@@ -1,16 +1,12 @@
 import { ColProps } from "@components/Col";
 import { iTextProps } from "@components/Text";
-import { ReactNode } from "react";
-import { ModalProps } from "react-native";
+import { ComponentProps } from "react";
+import { Modal } from "react-native-paper";
 
-export interface iModalProps extends Omit<ModalProps, "visible"> {
+export type iModalProps = {
   title: string;
   titleProps?: iTextProps;
   closeIconContainerProps?: ColProps;
-  visible: boolean;
-  setVisible: () => void;
-  width: number;
-  height: number;
-  direction?: "top" | "bottom" | "center";
-  children: ReactNode;
-}
+  width?: number;
+  height?: number;
+} & ComponentProps<typeof Modal>;

@@ -1,3 +1,4 @@
+import { WalletType } from "../types";
 import routeNames from "./routeNames";
 
 export type RootParamList = {
@@ -18,7 +19,9 @@ export type AppParamList = {
 
 export type HomeParamList = {
   [routeNames.HomeScreen]: undefined;
-  [routeNames.CreateWalletScreen]: undefined;
+  [routeNames.CreateWalletScreen]: {
+    walletType: WalletType;
+  };
 };
 
 export type MyTransactionsParamList = {

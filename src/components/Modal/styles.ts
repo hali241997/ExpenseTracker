@@ -2,16 +2,14 @@ import AppColors from "constants/colors";
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  backdrop: {
-    flex: 1,
-    backgroundColor: "rgba(0,0,0,0.5)",
-  },
-  childrenContainer: {
-    backgroundColor: AppColors.white,
+  contentContainerStyle: {
+    backgroundColor: AppColors.theme.background,
+    alignSelf: "center",
     borderRadius: 8,
+    justifyContent: "flex-start",
   },
   headerContainer: {
-    backgroundColor: AppColors.header,
+    backgroundColor: AppColors.theme.primary,
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,
     padding: 8,
@@ -24,7 +22,7 @@ export default StyleSheet.create({
   },
   closeIconContainer: {
     position: "absolute",
-    top: 10,
+    top: 5,
     right: 5,
   },
 });

@@ -1,18 +1,16 @@
 import { Col, Text } from "@components/index";
 import AppColors from "@constants/colors";
-import routeNames from "@navigation/routeNames";
-import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { HomeParamList } from "navigation";
+import { useModalState } from "hooks";
 import React, { FC } from "react";
 import { TouchableOpacity } from "react-native";
+import { CreateNewWalletModal } from "../CreateNewWalletModal";
 import styles from "./styles";
 
 const NoWallet: FC = () => {
-  const navigation = useNavigation<NativeStackNavigationProp<HomeParamList>>();
+  const [openCreateNewWalletModal, toggleCreateNewWalletModal] = useModalState();
 
   const handleCreateWallet = () => {
-    navigation.push(routeNames.CreateWalletScreen);
+    toggleCreateNewWalletModal();
   };
 
   return (
@@ -23,6 +21,11 @@ const NoWallet: FC = () => {
           Create One
         </Text>
       </TouchableOpacity>
+
+      <CreateNewWalletModal
+        visible={openCreateNewWalletModal}
+        onDismiss={toggleCreateNewWalletModal}
+      />
     </Col>
   );
 };
